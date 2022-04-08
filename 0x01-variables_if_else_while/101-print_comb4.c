@@ -25,6 +25,7 @@ int main(void)
 			{
 				putchar(n1);
 				putchar(n2);
+				putchar(n3);
 				if (n1 != 56 || n2 != 57)
 				{
 					putchar(com);
