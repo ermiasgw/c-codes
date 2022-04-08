@@ -12,6 +12,9 @@ int main(void)
 {
 	int n1 = 48;
 	int n2;
+	int n3;
+	int i = 1;
+	int j = 1;
 	int com = 44;
 
 	while (n1 <= 57)
@@ -19,12 +22,17 @@ int main(void)
 		n2 = n1 + 1;
 		while (n2 <= 57)
 		{
-			putchar(n1);
-			putchar(n2);
-			if (n1 != 56 || n2 != 57)
+			n3 = n2 + 1;
+			while (n3 <= 57)
 			{
-				putchar(com);
-				putchar(32);
+				putchar(n1);
+				putchar(n2);
+				if (n1 != 56 || n2 != 57)
+				{
+					putchar(com);
+					putchar(32);
+				}
+				n3 += 1;
 			}
 			n2 += 1;
 		}
