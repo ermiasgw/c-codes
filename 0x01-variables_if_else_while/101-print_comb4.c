@@ -13,8 +13,6 @@ int main(void)
 	int n1 = 48;
 	int n2;
 	int n3;
-	int i = 1;
-	int j = 1;
 	int com = 44;
 
 	while (n1 <= 57)
