@@ -13,10 +13,11 @@ int main(void)
 	int n1 = 48;
 	int n2 = 48;
 	int com = 44;
+	int i = 1;
 
 	while (n1 <= 57)
 	{
-		n2 = 49;
+		n2 = 48 + i++;
 		while (n2 <= 57)
 		{
 			putchar(n1);
