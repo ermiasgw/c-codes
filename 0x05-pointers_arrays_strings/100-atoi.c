@@ -25,7 +25,7 @@ int _atoi(char *s)
 		}
 		i++;
 	}
-	n *= s[i];
+	n *= s[i] - '0';
 	i++;
 	j++;
 	while (s[i] >= '0' && s[i] <= '9')
