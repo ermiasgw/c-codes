@@ -10,6 +10,7 @@ int _atoi(char *s)
 {
 	int i = 0;
 	int n = 1;
+	int j = 1;
 
 	while (s[i] < '0' && s[i] > '9')
 	{
@@ -30,14 +31,13 @@ int _atoi(char *s)
 	{
 		if (n < 0)
 		{
-			n = (s[i] - '0');
+			j = (s[i] - '0');
 		}
 		else
 		{
-			n = (s[i] - '0');
+			j = (s[i] - '0');
 		}
 		i++;
 	}
-	n = '4' - '0';
 	return (n);
 }
