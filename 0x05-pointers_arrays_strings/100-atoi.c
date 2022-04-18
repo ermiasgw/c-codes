@@ -24,19 +24,17 @@ int _atoi(char *s)
 		n = 0;
 		return (n);
 	}
+	n *= s[i];
+	i++;	
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		if (s[i] == '0')
+		if (n < 0)
 		{
-			n = n * 10;
+			n = n * 10 - (s[i] - '0');
 		}
-		else if (n < 0)
+		else
 		{
-			n = n * 10 + (10 - (s[i] - '0'));
-		}
-		else if (n > 0)
-		{
-			n = n * 10 - (10 - (s[i] - '0'));
+			n = n * 10 + (s[i] - '0');
 		}
 		i++;
 	}
