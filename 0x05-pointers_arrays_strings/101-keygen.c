@@ -12,9 +12,9 @@ int main(void)
 	int i = 0;
 
 	srand(time(NULL));
-	while (i < 16)
+	while (i < 12)
 	{
-		putchar((rand()%(90))+15);
+		putchar((rand()%(90-65))+65);
 		i++;
 	}
 	return (0);
