@@ -25,12 +25,12 @@ int _atoi(char *s)
 		i++;
 	}
 	n *= s[i];
-	i++;	
+	i++;
 	while (s[i] >= '0' && s[i] <= '9')
 	{
 		if (n < 0)
 		{
-			n = n * 10 - (s[i] - '0');
+			n = (s[i] - '0');
 		}
 		else
 		{
