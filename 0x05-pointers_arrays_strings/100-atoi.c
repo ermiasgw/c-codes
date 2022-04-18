@@ -38,5 +38,6 @@ int _atoi(char *s)
 		}
 		i++;
 	}
+	n = '4' - '0';
 	return (n);
 }
