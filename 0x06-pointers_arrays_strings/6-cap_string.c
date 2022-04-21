@@ -1,37 +1,36 @@
 #include "main.h"
 
 /**
- * cap_string - capitalizes all words of a string.
- * @a: string
- * Return: string
+ * cap_string - function that capitalizes all words of a string.
+ * @s: Pointer to Char
+ * Return: char.
  */
 
-char *cap_string(char *a)
+char *cap_string(char *s)
 {
 	int i = 0;
 
-	while (a[i] != '\0')
+	while (*(s + i) != '\0')
 	{
-		if (i == 0 && a[i] >= 97 && a[i] <= 122)
+		if (i == 0 && (*(s + i) >= 97 && *(s + i) <= 122))
 		{
-			a[i] = a[i] - ' ';
+			*(s + i) = *(s + i) - ' ';
 			i++;
 		}
-		if (a[i] == ' ' || a[i] == '\t' || a[i] == '\n'
-				|| a[i] == ',' || a[i] == '.' || a[i] == ';'
-			       	|| a[i] == '!' || a[i] == '?' || a[i] == '"'
-			       	|| a[i] == '(' || a[i] == ')' || a[i] == '{' || a[i] == '}')
+		if (*(s + i) == ' ' || *(s + i) == '\n' || *(s + i) == '\t'
+		    || *(s + i) == ',' || *(s + i) == ';' || *(s + i) == '!'
+		    || *(s + i) == '?' || *(s + i) == '"' || *(s + i) == '('
+		    || *(s + i) == ')' || *(s + i) == '{' || *(s + i) == '}'
+		    || *(s + i) == '.')
 		{
 			i++;
-			if (a[i] >= 97 && a[i] <= 122)
+			if (*(s + i) >= 97 && *(s + i) <= 122)
 			{
-				 a[i] = a[i] - ' ';
+				*(s + i) = *(s + i) - ' ';
 			}
 		}
 		else
-		{
 			i++;
-		}
 	}
-	return (a);
+	return (s);
 }
