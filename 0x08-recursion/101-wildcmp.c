@@ -46,6 +46,5 @@ int wildcmp(char *s1, char *s2)
 		r = 0;
 		return (r);
 	}
-
-
-
+	return (r);
+}
