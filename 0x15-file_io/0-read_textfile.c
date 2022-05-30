@@ -1,37 +1,53 @@
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
 #include "main.h"
 
 /**
- * read_textfile - read text and print it to POSIX
- * @filename: name of file char
- * @letters:number of letters to read size_t
- * Return: read the file display it or error 0
+ * read_textfile - reads and prints from a file
+ * @filename: path to file
+ * @letters: chars to read
+ * Return: chars read
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, rd, wd;
-	char *buff = malloc(sizeof(char) * letters);
+	int fd;
+	char *buff;
+	ssize_t bytes, r;
 
-	if (filename == NULL)
-	{
+	if (!filename)
 		return (0);
-	}
-
-	fd = open(filename, O_RDWR);
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
+		close(fd);
 		return (0);
 	}
-	rd = read(fd, buff, letters);
-	if (rd == -1)
+
+	buff = malloc(sizeof(char) * letters);
+	if (!buff)
 	{
+		close(fd);
 		return (0);
 	}
-	wd = write(STDOUT_FILENO, buff, rd);
-	if (wd == -1)
+
+	bytes = read(fd, buff, letters);
+
+	if (bytes == -1)
 	{
+		close(fd);
+		free(buff);
+		return (0);
+	}
+
+	r = write(STDOUT_FILENO, buff, bytes);
+
+	if (r == -1)
+	{
+		close(fd);
+		free(buff);
 		return (0);
 	}
 	close(fd);
-	free(buff);
-	return (wd);
+	return (bytes);
 }
